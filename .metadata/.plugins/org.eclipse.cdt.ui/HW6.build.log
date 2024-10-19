@@ -1,0 +1,23 @@
+14:11:22 **** Build of configuration Debug for project HW6 ****
+make -j12 all 
+Building file: ../src/hw6.c
+Invoking: MCU GCC Compiler
+C:\Users\trido\workspace\HW6\Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -DSTM32 -DSTM32F0 -DSTM32F091RCTx -DDEBUG -DSTM32F091 -DUSE_STDPERIPH_DRIVER -I"C:/Users/trido/workspace/HW6/StdPeriph_Driver/inc" -I"C:/Users/trido/workspace/HW6/inc" -I"C:/Users/trido/workspace/HW6/CMSIS/device" -I"C:/Users/trido/workspace/HW6/CMSIS/core" -O0 -g3 -Wall -fmessage-length=0 -ffunction-sections -c -MMD -MP -MF"src/hw6.d" -MT"src/hw6.o" -o "src/hw6.o" "../src/hw6.c"
+Finished building: ../src/hw6.c
+ 
+Building target: HW6.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -T"C:/Users/trido/workspace/HW6/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "HW6.elf" @"objects.list"   -lm
+Finished building target: HW6.elf
+ 
+make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "HW6.elf" "HW6.bin"
+arm-none-eabi-size "HW6.elf"
+   text	   data	    bss	    dec	    hex	filename
+   3908	   1080	   1092	   6080	   17c0	HW6.elf
+ 
+
+14:11:24 Build Finished (took 2s.279ms)
+

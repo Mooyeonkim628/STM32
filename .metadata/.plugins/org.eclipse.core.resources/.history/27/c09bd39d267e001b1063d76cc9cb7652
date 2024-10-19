@@ -1,0 +1,72 @@
+#include "stm32f0xx.h"
+
+extern volatile int counter;
+
+unsigned int subfoo(unsigned int x) {
+    if (x < 2)
+        return 0;
+    if ((x & 1) == 0)
+        return 2 + subfoo(x - 1);
+    return 1 + subfoo(x >> 1);
+}
+
+void enable_portb(){
+    RCC->AHBENR &= RCC_AHBENR_GPIOBEN;
+}
+
+void enable_portc(){
+    RCC->AHBENR &= RCC_AHBENR_GPIOCEN;
+}
+
+void setup_pb3(){
+    GPIOB->MODER ^= 0x00000000;
+
+}
+ldr  r0,=GPIOB
+ldr  r1, [r0, #MODER]
+ldr  r2,=0xc0
+bics r1, r2
+str  r1, [r0, #MODER]
+
+ldr  r0,=GPIOB
+ldr  r1, [r0, #PUPDR]
+ldr  r2,=0x80
+orrs r1, r2
+ldr  r2,=0x40
+bics r1, r2
+str  r1, [r0, #PUPDR]
+void setup_pb4()
+{
+
+
+}
+void setup_pc8()
+{
+
+
+}
+void setup_pc9()
+{
+
+
+}
+void action8()
+{
+
+
+}
+void action9()
+{
+
+
+}
+void enable_exti()
+{
+
+
+}
+void enable_tim3()
+{
+
+
+}s

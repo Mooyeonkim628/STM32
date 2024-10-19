@@ -1,0 +1,23 @@
+18:28:08 **** Build of configuration Debug for project lab0 ****
+make -j12 all 
+Building file: ../src/lab0.s
+Invoking: MCU GCC Assembler
+C:\Users\trido\workspace\lab0\Debug
+arm-none-eabi-as -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -I"C:/Users/trido/workspace/lab0/StdPeriph_Driver/inc" -I"C:/Users/trido/workspace/lab0/inc" -I"C:/Users/trido/workspace/lab0/CMSIS/device" -I"C:/Users/trido/workspace/lab0/CMSIS/core" -g -o "src/lab0.o" "../src/lab0.s"
+Finished building: ../src/lab0.s
+ 
+Building target: lab0.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -T"C:/Users/trido/workspace/lab0/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "lab0.elf" @"objects.list" C:/Users/trido/workspace/lab0/src/autotest.o  -lm
+Finished building target: lab0.elf
+ 
+make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "lab0.elf" "lab0.bin"
+arm-none-eabi-size "lab0.elf"
+   text	   data	    bss	    dec	    hex	filename
+   1172	   1080	   1092	   3344	    d10	lab0.elf
+ 
+
+18:28:11 Build Finished (took 2s.469ms)
+

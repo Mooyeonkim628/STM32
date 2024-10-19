@@ -1,0 +1,46 @@
+.cpu cortex-m0
+.thumb
+.syntax unified
+.fpu softvfp
+
+.global login
+login: .string "kim3244"
+hello_str: .string "Hello, %s!\n"
+.align  2
+.global hello
+hello:
+	push {lr}
+	bl serial_init
+	ldr  r0, =hello_string
+	ldr  r1, =login
+	bl   printf
+	pop  {pc}
+
+showmult2_str: .string "%d * %d = %d\n"
+.align  2
+.global showmult2
+showmult2:
+	push {lr}
+	bl serial_init
+	movs r2, r1
+	movs r1, r0
+	movs r3, r1
+	muls r3, r2
+	ldr  r0, =showmult2_str
+	bl   printf
+	pop  {pc}
+
+showmult3_str: .string "%d * %d * %d = %d\n"
+.align  2
+.global showmult3
+showmult3:
+	push {lr}
+	bl serial_init
+	movs r2, r1
+	movs r1, r0
+	movs r3, r1
+	muls r3, r2
+	ldr  r0, =showmult2_str
+	bl   printf
+	pop  {pc}
+// Add the rest of the subroutines here

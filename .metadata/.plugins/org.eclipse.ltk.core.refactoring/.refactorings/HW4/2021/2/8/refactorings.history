@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;HW4/src/studio.s&apos; to &apos;stdio.s&apos;" description="Rename resource &apos;studio.s&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/studio.s" name="stdio.s" stamp="1613627130233" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;HW4/src/hw.4&apos; to &apos;hw.4.s&apos;" description="Rename resource &apos;hw.4&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/hw.4" name="hw.4.s" stamp="1613694024658" updateReferences="true"/>
+</session>

@@ -1,0 +1,9 @@
+unsigned int subfoo(unsigned int x) {
+    if (x < 2)
+        return 0;
+    if ((x & 1) == 0)
+        return 2 + subfoo(x - 1);
+    return 1 + subfoo(x >> 1);
+}
+
+

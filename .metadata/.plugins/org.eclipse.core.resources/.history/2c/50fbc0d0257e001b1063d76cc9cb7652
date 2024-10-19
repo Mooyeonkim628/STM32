@@ -1,0 +1,65 @@
+extern volatile int counter;
+
+unsigned int subfoo(unsigned int x) {
+    if (x < 2)
+        return 0;
+    if ((x & 1) == 0)
+        return 2 + subfoo(x - 1);
+    return 1 + subfoo(x >> 1);
+}
+
+void enable_portb()
+{
+    RCC->AHBENR &= RCC_AHBENR_GPIOBEN;
+
+}
+ldr  r0, =RCC
+ldr  r1, [r0, #AHBENR]
+ldr  r2, =IOPBEN
+orrs r1, r2
+str  r1, [r0, #AHBENR]
+void enable_portc()
+{
+
+
+}
+void setup_pb3()
+{
+
+
+}
+void setup_pb4()
+{
+
+
+}
+void setup_pc8()
+{
+
+
+}
+void setup_pc9()
+{
+
+
+}
+void action8()
+{
+
+
+}
+void action9()
+{
+
+
+}
+void enable_exti()
+{
+
+
+}
+void enable_tim3()
+{
+
+
+}s

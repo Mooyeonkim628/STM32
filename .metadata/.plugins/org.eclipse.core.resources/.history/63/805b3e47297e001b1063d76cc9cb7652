@@ -1,0 +1,79 @@
+#include "stm32f0xx.h"
+
+extern volatile int counter;
+
+unsigned int subfoo(unsigned int x) {
+    if (x < 2)
+        return 0;
+    if ((x & 1) == 0)
+        return 2 + subfoo(x - 1);
+    return 1 + subfoo(x >> 1);
+}
+
+void enable_portb(){
+    RCC->AHBENR    &= RCC_AHBENR_GPIOBEN;
+}
+
+void enable_portc(){
+    RCC->AHBENR    &= RCC_AHBENR_GPIOCEN;
+}
+
+void setup_pb3(){
+    GPIOB->MODER   ^= 0xc0;
+    GPIOB->PUPDR   |= 0x80;
+    GPIOB->PUPDR   ^= 0x40;
+}
+
+void setup_pb4(){
+    GPIOB->MODER   ^= 0x300;
+    GPIOB->PUPDR   ^= 0x300;
+}
+
+void setup_pc8(){
+    GPIOC->MODER   |= 0x10000;
+    GPIOC->MODER   ^= 0x20000;
+    GPIOC->OSPEEDR |= 0x30000;
+}
+
+void setup_pc9(){
+    GPIOC->MODER   |= 0x40000;
+    GPIOC->MODER   ^= 0x80000;
+    GPIOC->OSPEEDR |= 0x40000;
+    GPIOC->OSPEEDR ^= 0x80000;
+}
+
+void action8(){
+    if(!(GPIOB->IDR >>3 & 1) && (GPIOB->IDR >>4 & 1))
+        GPIOB->ODR ^= 0x100;
+    else
+        GPIOB->ODR |= 0x100;
+
+}
+
+movs r0, #1
+lsls r0, r0, #8
+bics r3, r0
+ldr  r0, =GPIOC
+str  r3, [r0, #ODR]
+pop     {pc}
+action8_else:
+movs r0, #1
+lsls r0, r0, #8
+orrs r3, r0
+ldr  r0, =GPIOC
+str  r3, [r0, #ODR]
+void action9()
+{
+
+
+}
+void enable_exti()
+{
+
+
+}
+void enable_tim3()
+{
+
+
+}s

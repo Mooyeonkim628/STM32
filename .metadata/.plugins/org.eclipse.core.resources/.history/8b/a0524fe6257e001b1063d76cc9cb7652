@@ -1,0 +1,75 @@
+extern volatile int counter;
+struct GPIOx_type {
+unsigned int MODER; // Offset 0x0
+unsigned int OTYPER; // Offset 0x4
+unsigned int OSPEEDR; // Offset 0x8
+unsigned int PUPDR; // Offset 0xc
+unsigned int IDR; // Offset 0x10
+unsigned int ODR; // Offset 0x14
+unsigned int BSRR; // Offset 0x18
+unsigned int LCKR; // Offset 0x1c
+unsigned int AFR[2]; // Offset 0x20
+unsigned int BRR; // Offset 0x28
+};
+struct GPIOx_type *GPIOA = (struct GPIOx_type *) 0x48000000;
+struct GPIOx_type *GPIOB = (struct GPIOx_type *) 0x48000400;
+struct GPIOx_type *GPIOC = (struct GPIOx_type *) 0x48000800;
+unsigned int subfoo(unsigned int x) {
+    if (x < 2)
+        return 0;
+    if ((x & 1) == 0)
+        return 2 + subfoo(x - 1);
+    return 1 + subfoo(x >> 1);
+}
+
+void enable_portb()
+{
+    RCC->AHBENR &= RCC_AHBENR_GPIOBEN;
+
+}
+
+void enable_portc()
+{
+    RCC->AHBENR &= RCC_AHBENR_GPIOCEN
+}
+
+void setup_pb3()
+{
+
+
+}
+void setup_pb4()
+{
+
+
+}
+void setup_pc8()
+{
+
+
+}
+void setup_pc9()
+{
+
+
+}
+void action8()
+{
+
+
+}
+void action9()
+{
+
+
+}
+void enable_exti()
+{
+
+
+}
+void enable_tim3()
+{
+
+
+}s

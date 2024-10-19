@@ -1,0 +1,6 @@
+23:37:02 **** Build of configuration Debug for project HW9 ****
+make -j12 all 
+make: Nothing to be done for 'all'.
+
+23:37:02 Build Finished (took 602ms)
+
